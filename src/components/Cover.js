@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Typer from './Typer';
+import Belt from '../img/belt.jpg';
+import { SVG1 } from '../img/svgs';
 
 const StyledCover = styled.section`
   #cursor {
@@ -18,30 +20,54 @@ const StyledCover = styled.section`
   }
   .cover {
     height: 100vh;
-    background-color: #524656;
+  }
+  .cover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-image: url(${Belt});
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .cover__text {
     margin: 0 auto;
     height: 100%;
-    max-width: 600px;
-    padding-top: 100px;
+    max-width: 800px;
+    padding-top: 30vh;
   }
   h1 {
-    color: #e5ddcb;
-    text-shadow: 4px 4px 10px #eb7b59;
-    font-size: 4rem;
+    font-family: 'Special Elite', cursive;
+    color: black;
+    text-shadow: 2px 2px 8px black;
+    font-size: 5rem;
+    z-index: 2;
   }
   .name {
     position: absolute;
   }
+  .name span {
+    /* color: #18453b; */
+    color: white;
+  }
   .typer {
-    position: absolute;
+    position: relative;
     padding-top: 120px;
   }
-  .slice__wrapper_1 {
+  .slice__wrapper_up {
     position: absolute;
-    bottom: -3px;
+    bottom: 0px;
     width: 100%;
+    fill: #d1dbdc;
   }
 `;
 
@@ -62,21 +88,7 @@ function Cover() {
             ]}
           />
         </div>
-        <div className="slice__wrapper_1">
-          <svg
-            className="slice__svg"
-            width="100%"
-            height="100%"
-            viewBox="0 0 1100 126"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="slice__path--light"
-              d="M1100,0L0,126L1100,126L1100,0Z"
-            />
-          </svg>
-        </div>
+        <SVG1 />
       </div>
     </StyledCover>
   );

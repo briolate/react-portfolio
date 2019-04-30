@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledSkills = styled.section`
   .skills__wrapper {
-    background-color: #e5ddcb;
+    background-color: #d1dbdc;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
   }
   .skills__content {
     margin: auto;
@@ -17,12 +18,28 @@ const StyledSkills = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 64px auto 0px auto;
+    /* margin: 64px auto 0px auto; */
+    font-family: 'Special Elite', cursive;
+    font-size: 5rem;
+    color: #18453b;
   }
   .skills {
     display: flex;
-    padding: 96px 0 64px 0;
+    /* padding: 64px 0 96px 0; */
     justify-content: space-evenly;
+  }
+  .skill__item {
+    background-color: #18453b;
+    display: flex;
+    height: 200px;
+    width: 150px;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    transition: 1.5s;
+    h2 {
+      padding-top: 20px;
+    }
   }
   .slice__wrapper_2 {
     bottom: 0;
@@ -32,6 +49,28 @@ const StyledSkills = styled.section`
 `;
 
 function Skills() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = function() {
+      if (window.pageYOffset > 500 && window.pageYOffset < 1200) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+      document.querySelectorAll('.skill__item').forEach(el => {
+        if (visible === true) {
+          el.style.opacity = '1';
+          el.style.marginTop = '20px';
+        }
+        if (visible === false) {
+          el.style.opacity = '0';
+          el.style.marginTop = '0px';
+        }
+      });
+    };
+  }, [visible]);
+
   return (
     <StyledSkills>
       <section className="skills__wrapper">

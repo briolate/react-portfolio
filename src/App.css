@@ -1,7 +1,27 @@
-.slice__path--light {
-  fill: #e5ddcb;
+.slice__path--white {
+  fill: #d1dbdc;
 }
 
-.slice__path--dark {
-  fill: #524656;
+.slice__path--red {
+  fill: #ff003c;
+}
+
+.slice__path--orange {
+  fill: #ff8a00;
+}
+
+.slice__path--yellow {
+  fill: #fabe28;
+}
+
+.slice__path--green {
+  fill: #88c100;
+}
+
+.slice__path--blue {
+  fill: #00c176;
+}
+
+svg {
+  vertical-align: top;
 }
