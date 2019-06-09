@@ -37,6 +37,7 @@ const StyledSkills = styled.section`
     align-items: center;
     color: white;
     transition: 1.5s;
+    opacity: 0;
     h2 {
       padding-top: 20px;
     }

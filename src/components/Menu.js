@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Menu.css';
 
 function Menu() {
@@ -14,6 +14,25 @@ function Menu() {
     { name: 'work', url: '#' },
     { name: 'contact', url: '#' }
   ];
+
+  useEffect(() => {
+    const panel = document.querySelector('.menu-wrapper');
+    if (window.innerWidth < 768) {
+      panel.classList.add('mobile');
+    } else {
+      panel.classList.remove('mobile');
+    }
+    window.onresize = function() {
+      if (window.innerWidth < 768) {
+        panel.classList.add('mobile');
+      } else {
+        panel.classList.remove('mobile');
+      }
+      if (window.innerWidth > 768) {
+        setOpen(false);
+      }
+    };
+  }, []);
 
   return (
     <div>
@@ -36,7 +55,11 @@ function Button(props) {
 
 function Panel(props) {
   return (
-    <div className={props.open ? 'menu-wrapper menu-open' : 'menu-wrapper'}>
+    <div
+      className={
+        props.open ? 'menu-wrapper mobile menu-open' : 'menu-wrapper mobile'
+      }
+    >
       <Links links={props.links} open={props.open} />
     </div>
   );
